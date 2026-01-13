@@ -1,9 +1,6 @@
 package com.example.bts_api.domain;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
@@ -20,4 +17,7 @@ public class Job {
 
     @Column(length = 30)
     private String jname;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    private User user;
 }

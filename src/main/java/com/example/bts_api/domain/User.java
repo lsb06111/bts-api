@@ -33,10 +33,7 @@ public class User {
     @Column(length = 100)
     private String company;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "jobno")
+    @OneToOne(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private Job job;
-
-
 
 }
